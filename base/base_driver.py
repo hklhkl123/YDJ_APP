@@ -13,8 +13,8 @@ def init_driver():
     desired_caps['deviceName'] = 'e1a3da18'
 
     # app信息
-    desired_caps['appPackage'] = 'com.yidejia.yim.test'
-    desired_caps['appActivity'] = 'com.yidejia.yim.SplashActivity'
+    desired_caps['appPackage'] = 'com.yidejia.mall'
+    desired_caps['appActivity'] = '.ui.SplashActivity'
     #启动环境，解决输入中文和不重置数据
     desired_caps['unicodeKeyboard'] = True
     desired_caps['resetKeyboard'] = True

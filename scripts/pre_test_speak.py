@@ -83,4 +83,4 @@ class TestSpeak(object):
         self.driver.quit()
 
 if __name__ == "__main__":
-    pytest.main(["-s","test_speak.py"])
+    pytest.main(["-s","pre_test_speak.py"])
