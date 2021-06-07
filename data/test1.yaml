@@ -1,0 +1,26 @@
+test_login0 :
+  - 'name1'
+  - 'name2'
+  - 'name3'
+
+test_login1 :
+  -
+    - 'name4'
+    - 'password4'
+  -
+    - 'name5'
+    - 'password5'
+  -
+    - 'name6'
+    - 'password6'
+
+test_login2 :
+  -
+    name : 'name7'
+    password : 'password7'
+  -
+    name : 'name8'
+    password : 'password8'
+  -
+    name : 'name9'
+    password : 'password9'
