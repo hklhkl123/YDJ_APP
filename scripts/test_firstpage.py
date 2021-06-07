@@ -16,7 +16,7 @@ class TestIcon(object):
         self.driver = init_driver()
         self.firstpage_page = FirstPage(self.driver)
 
-    # @pytest.mark.skipif(True, reason="已经玩过了")
+    @pytest.mark.skipif(True, reason="已经玩过了")
     @allure.step(title="测试步骤001")
     #这里是设置用例的级别，会显示到allure报告中
     @allure.severity(allure.severity_level.CRITICAL)
@@ -27,10 +27,11 @@ class TestIcon(object):
         #传一个文件名和一个描述字段,这里直接截个图了
         self.firstpage_page.screenshot_and_attach("test_icon1",despription_content='第一次图片')
 
-    #这里就是往下滚动3下
-    def test_move(self):
-        for i in range(3):
-            self.firstpage_page.scroll_page_one_time()
+    #滚动查找元素，找到了就点击进去
+    def test_move_find_goods(self):
+        time.sleep(3)
+        if self.firstpage_page.roll_find_element():
+            self.firstpage_page.click_goods1()
 
 
     def teardown(self):

@@ -38,3 +38,10 @@ data1 = {'Search_Data': {
 t = time.gmtime()
 print(time.strftime("%Y-%m-%d_%H:%M:%S",time.gmtime()))
 print("test_icon1"+"_"+time.strftime("%Y%m%d_%H%M%S",time.localtime()))
+
+i = 0
+while not False:
+    i = i +1
+    print(i)
+    if i ==10:
+        break

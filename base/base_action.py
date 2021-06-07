@@ -105,9 +105,6 @@ class BaseAction(object):
         allure.attach(file, despription_content, allure.attachment_type.PNG)
 
 
-
-
-
     def scroll_page_one_time(self, direction="down"):
         window_size = self.driver.get_window_size()
         window_height = window_size["height"]
