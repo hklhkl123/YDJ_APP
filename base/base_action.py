@@ -1,3 +1,5 @@
+import time
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -88,8 +90,23 @@ class BaseAction(object):
         except Exception:
             return False
 
-    def screenshot(self, file_name):
-        self.driver.get_screenshot_as_file("./screen/" + file_name + ".png")
+    def screenshot_and_attach(self, def_name,despription_content='默认图片名'):
+        #使用原方法名+时间戳拼起来给图片命名
+        current_time = time.strftime("%Y%m%d_%H%M%S",time.localtime())
+        filename = def_name+"_"+current_time
+
+        #截图并且保存
+        self.driver.get_screenshot_as_file("./screen/" + filename + ".png")
+
+        #上传图片到allure报告
+        file_name = './screen/' + filename + '.png'
+        with open(file_name, mode='rb') as f:
+            file = f.read()
+        allure.attach(file, despription_content, allure.attachment_type.PNG)
+
+
+
+
 
     def scroll_page_one_time(self, direction="down"):
         window_size = self.driver.get_window_size()
@@ -120,6 +137,7 @@ class BaseAction(object):
     def press_keycode_back(self):
         self.press_keycode(4)
 
+
     def press_keycode(self, keycode):
         if "automationName" not in self.driver.capabilities.keys():
             self.driver.keyevent(keycode)
@@ -137,3 +155,11 @@ class BaseAction(object):
             else:
                 self.scroll_page_one_time("right")
         return False
+
+    #检查元素是否存在
+    def is_loc_exist(self, loc):
+        try:
+            self.find_element(loc)
+            return True
+        except Exception:
+            return False

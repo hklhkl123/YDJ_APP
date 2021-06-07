@@ -9,11 +9,11 @@ from base.base_driver import init_driver
 from page.message_page import MessagePage
 from base.base_yaml import yml_data_with_filename_and_key
 
-a =  yml_data_with_filename_and_key("test_speak", "test_click_speak")
-print(a)
-@pytest.mark.parametrize("name,content", yml_data_with_filename_and_key("test_speak", "test_click_speak"))
-def test_001(name,content):
-    print(name+' and '+str(content))
+# a =  yml_data_with_filename_and_key("test_speak", "test_click_speak")
+# print(a)
+# @pytest.mark.parametrize("name,content", yml_data_with_filename_and_key("test_speak", "test_click_speak"))
+# def test_001(name,content):
+#     print(name+' and '+str(content))
 
 
 
@@ -33,3 +33,8 @@ data1 = {'Search_Data': {
 # with open("data/test_speak_data.yaml", "r",encoding ="utf-8" ) as f:
 #     data = yaml.load(f,Loader = yaml.FullLoader)["test_login1"]
 #     print(data)
+
+# print(time.asctime(time.local(time.time())))
+t = time.gmtime()
+print(time.strftime("%Y-%m-%d_%H:%M:%S",time.gmtime()))
+print("test_icon1"+"_"+time.strftime("%Y%m%d_%H%M%S",time.localtime()))
