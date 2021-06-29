@@ -9,7 +9,7 @@ from base.base_action import BaseAction
 
 class FirstPage(BaseAction):
     icon1 = By.XPATH, "text,精致护理,1"
-    goods1 = By.XPATH, "text,BC31,0"
+    goods1 = By.XPATH, "text,BC07,0"
 
 
     def __init__(self,driver):

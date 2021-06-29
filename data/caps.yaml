@@ -1,0 +1,47 @@
+-
+  deviceDesc: 'koobee'
+  server_ip: '127.0.0.1'
+  server_port: 4727
+  desired_caps:
+    platformName: 'Android'
+    platformVersion: '6.0'
+    deviceName: '0123456789ABCDEF'
+    appPackage: 'com.yidejia.mall.debug'
+    appActivity: 'com.yidejia.mall.ui.SplashActivity'
+    unicodeKeyboard: True
+    resetKeyboard: True
+    noReset: True
+    dontStopAppOnReset: True
+    automationName: 'Uiautomator2'
+
+-
+  deviceDesc: 'Moto'
+  server_ip: '127.0.0.1'
+  server_port: 4723
+  desired_caps:
+    platformName: 'Android'
+    platformVersion: '8.1.0'
+    deviceName: 'e1a3da18'
+    appPackage: 'com.yidejia.mall.debug'
+    appActivity: 'com.yidejia.mall.ui.SplashActivity'
+    unicodeKeyboard: True
+    resetKeyboard: True
+    noReset: True
+    dontStopAppOnReset: True
+    automationName: 'Uiautomator2'
+-
+  deviceDesc: 'honor_v8'
+  server_ip: '127.0.0.1'
+  server_port: 4725
+  desired_caps:
+    platformName: 'Android'
+    platformVersion: '8.0.0'
+    deviceName: 'TWGDU16513002866'
+    appPackage: 'com.yidejia.mall.debug'
+    appActivity: 'com.yidejia.mall.ui.SplashActivity'
+    unicodeKeyboard: True
+    resetKeyboard: True
+    noReset: True
+    dontStopAppOnReset: True
+    automationName: 'Uiautomator2'
+
