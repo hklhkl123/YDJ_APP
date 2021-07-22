@@ -6,7 +6,7 @@
     platformName: 'Android'
     platformVersion: '6.0'
     deviceName: '0123456789ABCDEF'
-    appPackage: 'com.yidejia.mall.debug'
+    appPackage: 'com.yidejia.mall'
     appActivity: 'com.yidejia.mall.ui.SplashActivity'
     unicodeKeyboard: True
     resetKeyboard: True
@@ -22,7 +22,7 @@
     platformName: 'Android'
     platformVersion: '8.1.0'
     deviceName: 'e1a3da18'
-    appPackage: 'com.yidejia.mall.debug'
+    appPackage: 'com.yidejia.mall'
     appActivity: 'com.yidejia.mall.ui.SplashActivity'
     unicodeKeyboard: True
     resetKeyboard: True
@@ -37,7 +37,7 @@
     platformName: 'Android'
     platformVersion: '8.0.0'
     deviceName: 'TWGDU16513002866'
-    appPackage: 'com.yidejia.mall.debug'
+    appPackage: 'com.yidejia.mall'
     appActivity: 'com.yidejia.mall.ui.SplashActivity'
     unicodeKeyboard: True
     resetKeyboard: True

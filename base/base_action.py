@@ -115,7 +115,10 @@ class BaseAction(object):
         rigth_x = left_x * 3
         center_x = window_width * 0.5
         center_y = window_height * 0.5
+        #有些轮播图在顶部，不是在中间，需要特殊处理，在0.25y滚动一下
+        center_y_025 = window_height * 0.25
 
+        #前面的点最后停留在后面的点位上
         if direction == "down":
             self.driver.swipe(center_x, down_y, center_x, up_y)
         elif direction == "up":
@@ -124,6 +127,11 @@ class BaseAction(object):
             self.driver.swipe(left_x, center_y, rigth_x, center_y)
         elif direction == "right":
             self.driver.swipe(rigth_x, center_y, left_x, center_y)
+        #这下面的就是0.25y的左右滑动
+        elif direction == "left_025":
+            self.driver.swipe(left_x, center_y_025, rigth_x, center_y_025)
+        elif direction == "right_025":
+            self.driver.swipe(rigth_x, center_y_025, left_x, center_y_025)
         else:
             raise Exception("请输入正确的direction参数 down、up、left、right")
 

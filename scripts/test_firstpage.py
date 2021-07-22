@@ -23,19 +23,27 @@ class TestIcon(object):
     #这里是设置用例的级别，会显示到allure报告中
     @allure.severity(allure.severity_level.CRITICAL)
     #点击一下【精致护理】
+
+    #默认精选列表下拉，然后到底点击返回顶部
+    def test_backtop(self,login_common_driver):
+        self.firstpage_page = FirstPage(login_common_driver)
+        if self.firstpage_page.roll_find_nomore_button():
+            self.firstpage_page.click_back_top()
+
+    #进入精选tab，然后滚动搜索产品，最后进去详情
     def test_icon1(self,login_common_driver):
         self.firstpage_page = FirstPage(login_common_driver)
         self.firstpage_page.click_icon1()
-        time.sleep(3)
+        time.sleep(1)
         #传一个文件名和一个描述字段,这里直接截个图了
         # self.firstpage_page.screenshot_and_attach("test_icon1",despription_content='第一次图片')
 
     #滚动查找元素，找到了就点击进去
     # @pytest.mark.skipif(True, reason="已经玩过了")
-    def test_move_find_goods(self,login_common_driver):
+    def test_move_find_goods1(self,login_common_driver):
         self.firstpage_page = FirstPage(login_common_driver)
-        time.sleep(3)
-        if self.firstpage_page.roll_find_element():
+        time.sleep(1)
+        if self.firstpage_page.roll_find_goods1():
             self.firstpage_page.click_goods1()
 
     # def teardown(self):

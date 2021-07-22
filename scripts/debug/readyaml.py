@@ -1,5 +1,5 @@
 import yaml
-with open("../data/caps.yaml", 'r', encoding ="utf-8") as f:
+with open("../../data/caps.yaml", 'r', encoding ="utf-8") as f:
     #这个是老方法会提示警告
     # data = yaml.load(f)
     #这个是新的，也可以用SafeLoader，会更加安全

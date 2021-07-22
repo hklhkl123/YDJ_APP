@@ -1,8 +1,9 @@
 import pytest
 from base.base_driver import init_driver
 
-params= ['honor_v8','Moto','koobee']
+# params= ['honor_v8','Moto','koobee']
 # params=['koobee']
+params= ['honor_v8']
 
 @pytest.fixture(params=params)
 def login_common_driver(request):
