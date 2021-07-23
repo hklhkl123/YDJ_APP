@@ -14,7 +14,7 @@ class BaseAction(object):
     def input(self, loc, text):
         self.find_element(loc).send_keys(text)
 
-    def find_element(self, loc, timeout=10.0, poll=1.0):
+    def find_element(self, loc, timeout=5.0, poll=0.5):
         by = loc[0]
         value = loc[1]  # "text,0"
         if by == By.XPATH:
@@ -22,7 +22,7 @@ class BaseAction(object):
             print(value)
         return WebDriverWait(self.driver, timeout, poll).until(lambda x: x.find_element(by, value))
 
-    def find_elements(self, loc, timeout=10.0, poll=1.0):
+    def find_elements(self, loc, timeout=5.0, poll=0.5):
         by = loc[0]
         value = loc[1]
         if by == By.XPATH:
@@ -96,10 +96,10 @@ class BaseAction(object):
         filename = def_name+"_"+current_time
 
         #截图并且保存
-        self.driver.get_screenshot_as_file("./screen/" + filename + ".png")
+        self.driver.get_screenshot_as_file("../screen/" + filename + ".png")
 
         #上传图片到allure报告
-        file_name = './screen/' + filename + '.png'
+        file_name = '../screen/' + filename + '.png'
         with open(file_name, mode='rb') as f:
             file = f.read()
         allure.attach(file, despription_content, allure.attachment_type.PNG)
