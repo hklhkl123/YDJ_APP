@@ -1,8 +1,6 @@
-
-a = [1,2,3,4,5]
-b = 3
-c= 0
-for i in a:
-    if i == b:
-        index1 = a.index(i)
-        print(index1)
+a = "[278,338][486,507]"
+print(a)
+d = a.replace("][",",")
+e = eval(d)
+print(e)
+print(type(e))
