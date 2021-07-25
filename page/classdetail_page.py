@@ -16,7 +16,21 @@ class ClassPage(BaseAction):
     goods_back_button = By.XPATH, "resource-id,com.yidejia.mall:id/ivBackNavigationBar"
     search_button = By.XPATH, "resource-id,com.yidejia.mall:id/ivRightNavigationBarSearch"
     search_button_back = By.XPATH, "resource-id,com.yidejia.mall:id/ivBack"
+    big_class_1 = By.XPATH, "text,营养健康"
+    big_class_2 = By.XPATH, "text,精致护理"
+    big_class_3 = By.XPATH, "text,魅力彩妆"
+    big_class_4 = By.XPATH, "text,时尚服装"
+    big_class_5 = By.XPATH, "text,母婴宝贝"
+    big_class_6 = By.XPATH, "text,品牌入驻"
+
+    class_1 = By.XPATH, "text,健康需求"
     class_2 = By.XPATH, "text,品牌系列"
+    class_3 = By.XPATH, "text,组合系列"
+    class_4 = By.XPATH, "text,护肤分类"
+    class_5 = By.XPATH, "text,肌肤需求"
+    class_6 = By.XPATH, "text,产品系列"
+    class_7 = By.XPATH, "text,内调食品"
+
 
 
     def __init__(self,driver):
