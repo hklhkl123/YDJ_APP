@@ -15,7 +15,7 @@ class TestBuy(object):
     @pytest.mark.skipif(True, reason="已经玩过了")
     def test_01_icon1_jingzhi(self,login_common_driver):
         self.homepage_page = HomePage(login_common_driver)
-        self.homepage_page.click_icon1_jingzhi()
+        self.homepage_page.click_icon1_jingzhihuli()
         time.sleep(1)
 
     #滚动查找元素，找到了就点击进去

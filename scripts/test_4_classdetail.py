@@ -17,11 +17,27 @@ class TestClass(object):
     # #这里是设置用例的级别，会显示到allure报告中
     # @allure.severity(allure.severity_level.CRITICAL)
 
-    #通过2种方式进入到class界面
+    #进入到class界面
     def test_01_class_enter(self,login_common_driver):
         self.classdetail_page = ClassPage(login_common_driver)
         self.classdetail_page.click_class_button_1()
-        self.classdetail_page.click_class_2()
+        #这是第二种进入按键
+        # self.classdetail_page.click_class_2()
+
+    #向下滚动左侧的分类栏，最后点击【其他】
+    def test_02_roll_bigclass(self,login_common_driver):
+        self.classdetail_page = ClassPage(login_common_driver)
+        #获取到默认进来的营养健康的x坐标
+        x = self.classdetail_page.find_big_class1_positon_x()
+        #传个下面的函数进行，基于x不变的向下滚动
+        self.classdetail_page.roll_bigclass_find_big_class_6(x,"down")
+        self.classdetail_page.click_class_10()
+
+    #向上滚动右侧的商品栏，找到产品后点击进去，然后返回
+    def test_03_roll_goodslist(self,login_common_driver):
+        self.classdetail_page = ClassPage(login_common_driver)
+        self.classdetail_page.roll_find_goods_and_click_goods_D200518("up")
+        self.classdetail_page.click_goods_back_button()
 
 
 

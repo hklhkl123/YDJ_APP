@@ -30,6 +30,10 @@ class ClassPage(BaseAction):
     class_5 = By.XPATH, "text,肌肤需求"
     class_6 = By.XPATH, "text,产品系列"
     class_7 = By.XPATH, "text,内调食品"
+    class_10 = By.XPATH, "text,其他"
+
+    goods_AK11 = By.XPATH, "text,AK11"
+    goods_D200518 = By.XPATH, "text,D200518"
 
 
 
@@ -54,26 +58,48 @@ class ClassPage(BaseAction):
             else:
                 a[1].click()
 
+    def click_class_10(self):
+        #这里返回的是一个数组
+        a = self.find_elements(self.class_10)
+        #先判断长度，如果1个就直接点了，2个就找x坐标是0的点
+        if len(a) == 1:
+            a[0].click()
+        else:
+            #取出元素的坐标，变成一个list，如果list[0]==0，那么就点击这个
+            if eval(a[0].get_attribute("bounds").replace("][", ","))[0] == 0:
+                a[0].click()
+            else:
+                a[1].click()
 
+    def click_goods_D200518(self):
+        self.click(self.goods_D200518)
 
+    def click_goods_back_button(self):
+        self.click(self.goods_back_button)
 
+    #滚动找元素，找到了就返回TRUE
+    def roll_find_goods_and_click_goods_D200518(self,direction = "up"):
+        while not self.is_loc_exist(self.goods_D200518):
+            self.scroll_page_one_time(direction)
+        self.click(self.goods_D200518)
 
-
-
-    # #滚动找元素，找到了就返回TRUE
-    # def roll_find_goods(self,name="BC07"):
-    #     while not self.is_loc_exist(self.goods_BC07):
-    #         self.scroll_page_one_time()
-    #     return True
     # def roll_find_nomore_button(self):
     #     while not self.is_loc_exist(self.nomore_button):
     #         self.scroll_page_one_time()
     #     return True
-    # #通过一个元素的x或y中心位置，来选中移动【上下左右】
-    # def roll_tab_icon5_muying(self,direction):
-    #     self.scroll_page_one_time_by_mid(self.icon5_muying,direction)
-    # def roll_tab_icon1_jingzhihuli(self,direction):
-    #     self.scroll_page_one_time_by_mid(self.icon1_jingzhihuli,direction)
+
+    #直接找到元素x坐标
+    def find_big_class1_positon_x(self):
+        p = self.find_element_position(self.big_class_1)
+        x =p[0]
+        return x
+
+    #通过一个元素的x或y中心位置，来选中移动【上下左右】
+    def roll_bigclass_find_big_class_6(self,x,direction = "down"):
+        while not self.is_loc_exist(self.big_class_6):
+            self.scroll_page_one_time_constant_x(x,direction)
+
+
 
 
 

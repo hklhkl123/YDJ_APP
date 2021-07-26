@@ -14,7 +14,7 @@ class BaseAction(object):
     def input(self, loc, text):
         self.find_element(loc).send_keys(text)
 
-    def find_element(self, loc, timeout=5.0, poll=0.5):
+    def find_element(self, loc, timeout=8.0, poll=0.5):
         by = loc[0]
         value = loc[1]  # "text,0"
         if by == By.XPATH:
@@ -22,7 +22,7 @@ class BaseAction(object):
             print(value)
         return WebDriverWait(self.driver, timeout, poll).until(lambda x: x.find_element(by, value))
 
-    def find_elements(self, loc, timeout=5.0, poll=0.5):
+    def find_elements(self, loc, timeout=8.0, poll=0.5):
         by = loc[0]
         value = loc[1]
         if by == By.XPATH:
@@ -205,3 +205,28 @@ class BaseAction(object):
         else:
             raise Exception("请输入正确的direction参数 down、up、left、right")
 
+    def scroll_page_one_time_constant_x(self,x,direction="down"):
+        window_size = self.driver.get_window_size()
+        window_height = window_size["height"]
+        up_y = window_height * 0.25
+        down_y = up_y * 3
+        # 前面的点移动到后面的点位
+        if direction == "down":
+            self.driver.swipe(x, down_y, x, up_y)
+        elif direction == "up":
+            self.driver.swipe(x, up_y, x, down_y)
+        else:
+            raise Exception("请输入正确的direction参数 down、up")
+
+    def scroll_page_one_time_constant_y(self,y,direction="right"):
+        window_size = self.driver.get_window_size()
+        window_width = window_size["width"]
+        left_x = window_width * 0.25
+        right_x = left_x * 3
+        # 前面的点移动到后面的点位
+        if direction == "left":
+            self.driver.swipe(left_x, y, right_x, y)
+        elif direction == "right":
+            self.driver.swipe(right_x, y, left_x, y)
+        else:
+            raise Exception("请输入正确的direction参数 left、right")
