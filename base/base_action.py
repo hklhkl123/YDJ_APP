@@ -14,7 +14,7 @@ class BaseAction(object):
     def input(self, loc, text):
         self.find_element(loc).send_keys(text)
 
-    def find_element(self, loc, timeout=8.0, poll=0.5):
+    def find_element(self, loc, timeout=10.0, poll=0.5):
         by = loc[0]
         value = loc[1]  # "text,0"
         if by == By.XPATH:
@@ -22,7 +22,7 @@ class BaseAction(object):
             print(value)
         return WebDriverWait(self.driver, timeout, poll).until(lambda x: x.find_element(by, value))
 
-    def find_elements(self, loc, timeout=8.0, poll=0.5):
+    def find_elements(self, loc, timeout=10.0, poll=0.5):
         by = loc[0]
         value = loc[1]
         if by == By.XPATH:

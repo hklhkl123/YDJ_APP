@@ -13,12 +13,14 @@ class TestBuy(object):
 
     #进入精选tab
     @pytest.mark.skipif(True, reason="已经玩过了")
+    @allure.step(title="进入精选tab")
     def test_01_icon1_jingzhi(self,login_common_driver):
         self.homepage_page = HomePage(login_common_driver)
         self.homepage_page.click_icon1_jingzhihuli()
         time.sleep(1)
 
     #滚动查找元素，找到了就点击进去
+    @allure.step(title="滚动查找元素，找到了就点击进去")
     @pytest.mark.skipif(True, reason="已经玩过了")
     def test_02_move_find_goods(self,login_common_driver):
         self.homepage_page = HomePage(login_common_driver)
@@ -26,11 +28,9 @@ class TestBuy(object):
         if self.homepage_page.roll_find_goods("BC07"):
             self.homepage_page.click_goods("BC07")
 
-
-    # @allure.step(title="测试步骤001")
+    @allure.step(title="进详情后滚动商品图3次")
     # #这里是设置用例的级别，会显示到allure报告中
     # @allure.severity(allure.severity_level.CRITICAL)
-    #进详情后滚动商品图3次
     # @pytest.mark.skipif(True, reason="已经玩过了")
     def test_03_roll_picture(self,login_common_driver):
         self.goodsdetail_page = GoodsDetail(login_common_driver)

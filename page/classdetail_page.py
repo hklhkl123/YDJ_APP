@@ -77,7 +77,7 @@ class ClassPage(BaseAction):
     def click_goods_back_button(self):
         self.click(self.goods_back_button)
 
-    #滚动找元素，找到了就返回TRUE
+    #滚动找元素，找到了就点击
     def roll_find_goods_and_click_goods_D200518(self,direction = "up"):
         while not self.is_loc_exist(self.goods_D200518):
             self.scroll_page_one_time(direction)
