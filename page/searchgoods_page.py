@@ -17,7 +17,13 @@ class SearchGoods(BaseAction):
     empty_result = By.XPATH, "resource-id,com.yidejia.mall:id/tv_empty"
     # 如果是数组那么就会进行拼接
     quick_search_YS05 = By.XPATH, ["text,YS05", "resource-id,com.yidejia.mall:id/tv_title"]
+    #产品搜索结果
     search_result_YS05 = By.XPATH,["text,YS05", "resource-id,com.yidejia.mall:id/tvTitle"]
+    search_result_E06 = By.XPATH, ["text,E06", "resource-id,com.yidejia.mall:id/tvTitle"]
+    search_result_AH09 = By.XPATH, ["text,AH09", "resource-id,com.yidejia.mall:id/tvTitle"]
+    search_result_AH10 = By.XPATH, ["text,AH10", "resource-id,com.yidejia.mall:id/tvTitle"]
+    search_result_AH11 = By.XPATH, ["text,AH11", "resource-id,com.yidejia.mall:id/tvTitle"]
+    search_result_YS10 = By.XPATH, ["text,YS10", "resource-id,com.yidejia.mall:id/tvTitle"]
     back_button = By.XPATH, "resource-id,com.yidejia.mall:id/ivBackNavigationBar"
     #原生也可以支持
     #back_button = By.XPATH, "//*[contains(@resource-id,'com.yidejia.yim.test:id/base_tv_left')]"
@@ -42,8 +48,19 @@ class SearchGoods(BaseAction):
         self.click(self.clear_search_button)
     def click_quick_search_YS05(self):
         self.click(self.quick_search_YS05)
+    #这一节全部是点击搜索结果
     def click_search_result_YS05(self):
         self.click(self.search_result_YS05)
+    def click_search_result_YS10(self):
+        self.click(self.search_result_YS10)
+    def click_search_result_AH09(self):
+        self.click(self.search_result_AH09)
+    def click_search_result_AH10(self):
+        self.click(self.search_result_AH10)
+    def click_search_result_AH11(self):
+        self.click(self.search_result_AH11)
+    def click_search_result_E06(self):
+        self.click(self.search_result_E06)
     def click_back_button(self):
         self.click(self.back_button)
 

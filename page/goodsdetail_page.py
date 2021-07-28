@@ -11,12 +11,13 @@ class GoodsDetail(BaseAction):
     salenum = By.XPATH, "resource-id,com.yidejia.mall:id/tv_sale,1"
     goodsname = By.XPATH, "resource-id,com.yidejia.mall:id/tv_name,1"
     recommandreason = By.XPATH, "resource-id,com.yidejia.mall:id/tv_state,1"
+    back_button = By.XPATH, "resource-id,com.yidejia.mall:id/ivBackNavigationBar,1"
     address = By.XPATH, "resource-id,com.yidejia.mall:id/tv_address,1"
     answer = By.XPATH, "text,客服,1"
     shopping_cart = By.XPATH, "text,购物车,1"
     shopping_cart_num = By.XPATH, "resource-id,com.yidejia.mall:id/tv_point,1"
+    putinto_shopping_cart = By.XPATH, ["text,加入购物车","resource-id,com.yidejia.mall:id/tv_add,1"]
     favorites = By.XPATH, "text,收藏,1"
-    add_goods_button = By.XPATH, "resource-id,com.yidejia.mall:id/tv_add,1"
     add_goods_num = By.XPATH, "resource-id,com.yidejia.mall:id/iv_add,1"
     reduce_goods_num = By.XPATH, "resource-id,com.yidejia.mall:id/iv_cut_down,1"
     buy_now = By.XPATH, "resource-id,com.yidejia.mall:id/tv_buy,1"
@@ -44,8 +45,8 @@ class GoodsDetail(BaseAction):
         self.click(self.shopping_cart)
     def click_favorites(self):
         self.click(self.favorites)
-    def click_add_goods_button(self):
-        self.click(self.add_goods_button)
+    def click_putinto_shopping_cart(self):
+        self.click(self.putinto_shopping_cart)
     def click_buy_now(self):
         self.click(self.buy_now)
     def click_confirm_button(self):
@@ -54,6 +55,8 @@ class GoodsDetail(BaseAction):
         self.click(self.add_goods_num)
     def click_reduce_goods_num(self):
         self.click(self.reduce_goods_num)
+    def click_back_button(self):
+        self.click(self.back_button)
 
 
     def left_roll_3_times(self):

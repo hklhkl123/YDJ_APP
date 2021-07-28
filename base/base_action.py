@@ -14,6 +14,9 @@ class BaseAction(object):
     def input(self, loc, text):
         self.find_element(loc).send_keys(text)
 
+    def clear_input(self,loc):
+        self.find_element(loc).clear()
+
     def find_element(self, loc, timeout=10.0, poll=0.5):
         by = loc[0]
         value = loc[1]  # "text,0"

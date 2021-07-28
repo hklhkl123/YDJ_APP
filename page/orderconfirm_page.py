@@ -9,14 +9,6 @@ from base.base_action import BaseAction
 
 class ConfirmPage(BaseAction):
     # 后面加1就是精准的，默认不加or加0的是模糊匹配
-    #这是搜索需要的，产品结果
-    search_inputbox_homepage = By.XPATH, "resource-id,com.yidejia.mall:id/et_search"
-    search_inputbox = By.XPATH, "resource-id,com.yidejia.mall:id/etSearch"
-    search_button = By.XPATH, "resource-id,com.yidejia.mall:id/tvSearch"
-    search_result_YS05 = By.XPATH, ["text,YS05", "resource-id,com.yidejia.mall:id/tvTitle"]
-    #这个是立即购买和确定
-    buy_now = By.XPATH, "resource-id,com.yidejia.mall:id/tv_buy,1"
-    confirm_button_1 = By.XPATH, ["text,确定","resource-id,com.yidejia.mall:id/tv_confirm,1"]
 
     address = By.XPATH, "resource-id,com.yidejia.mall:id/cl_address,1"
     #运费
@@ -36,21 +28,6 @@ class ConfirmPage(BaseAction):
     pay_cancel = By.XPATH, ["text,暂时放弃", "resource-id,com.yidejia.mall:id/tv_cancel,1"]
     pay_continue = By.XPATH, ["text,继续支付", "resource-id,com.yidejia.mall:id/tv_confirm,1"]
 
-
-    #这是搜索数据
-    def click_search_inputbox_homepage(self):
-        self.click(self.search_inputbox_homepage)
-    def input_search_inputbox(self,text):
-        self.input(self.search_inputbox,text)
-    def click_search_button(self):
-        self.click(self.search_button)
-    def click_search_result_YS05(self):
-        self.click(self.search_result_YS05)
-    #这是立即购买和确定
-    def click_buy_now(self):
-        self.click(self.buy_now)
-    def click_confirm_button_1(self):
-        self.click(self.confirm_button_1)
 
     #这是确定订单需要的按键
     def click_address(self):

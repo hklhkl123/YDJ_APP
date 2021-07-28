@@ -67,7 +67,7 @@ class TestBuy(object):
     #点击加入购物车，增加2个产品，点击确定,打印购物车数量
     def test_08_add_goods(self,login_common_driver):
         self.goodsdetail_page = GoodsDetail(login_common_driver)
-        self.goodsdetail_page.click_add_goods_button()
+        self.goodsdetail_page.click_putinto_shopping_cart()
         for i in range(2):
             self.goodsdetail_page.click_add_goods_num()
         time.sleep(1)
