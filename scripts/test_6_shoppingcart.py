@@ -41,6 +41,7 @@ class TestShoppingCart(object):
         #然后点击清除搜索记录
         self.searchgoods_page.click_clear_search_button()
 
+    @pytest.mark.skipif(True, reason="已经玩过了")
     def test_03_make_E06_into_shoppingcart(self,login_common_driver):
         #继承2个page
         self.searchgoods_page = SearchGoods(login_common_driver)
@@ -57,6 +58,7 @@ class TestShoppingCart(object):
         #然后点击清除搜索记录
         self.searchgoods_page.click_clear_search_button()
 
+    @pytest.mark.skipif(True, reason="已经玩过了")
     def test_04_make_YS10_into_shoppingcart(self,login_common_driver):
         #继承2个page
         self.searchgoods_page = SearchGoods(login_common_driver)
@@ -73,6 +75,7 @@ class TestShoppingCart(object):
         #然后点击清除搜索记录
         self.searchgoods_page.click_clear_search_button()
 
+    @pytest.mark.skipif(True, reason="已经玩过了")
     def test_05_make_AH09_into_shoppingcart(self,login_common_driver):
         #继承2个page
         self.searchgoods_page = SearchGoods(login_common_driver)
@@ -89,6 +92,7 @@ class TestShoppingCart(object):
         #然后点击清除搜索记录
         self.searchgoods_page.click_clear_search_button()
 
+    @pytest.mark.skipif(True, reason="已经玩过了")
     def test_06_make_AH10_into_shoppingcart(self,login_common_driver):
         #继承2个page
         self.searchgoods_page = SearchGoods(login_common_driver)
@@ -117,9 +121,28 @@ class TestShoppingCart(object):
         self.goodsdetail_page.click_putinto_shopping_cart()
         self.goodsdetail_page.click_confirm_button()
         time.sleep(3)
-        self.goodsdetail_page.click_back_button()
-        #然后点击清除搜索记录
-        self.searchgoods_page.click_clear_search_button()
+        #然后点击购物车进入购物车界面
+        self.goodsdetail_page.click_shopping_cart()
+
+    def test_08_add_num(self,login_common_driver):
+        self.shoppingcart_page = ShoppingCartPage(login_common_driver)
+        #连续点击第1个元素5次
+        self.shoppingcart_page.click_add_num_xele_ntimes(1,5)
+        #连续点击第2个元素5次，然后再减2次
+        self.shoppingcart_page.click_add_num_xele_ntimes(2,5)
+        time.sleep(3)
+        self.shoppingcart_page.click_reduce_num_xele_ntimes(2,2)
+        #勾选第4个单选
+        self.shoppingcart_page.click_single_select_button_n(4)
+        #点击第3个输入值,然后关闭
+        self.shoppingcart_page.click_click_num_n(3)
+        self.shoppingcart_page.click_cancel_button()
+        #点击第3个输入值,然后清除输入值，再输入新的，点确定
+        self.shoppingcart_page.click_click_num_n(3)
+        self.shoppingcart_page.clear_input_num()
+        self.shoppingcart_page.input_goods_num(10)
+        self.shoppingcart_page.click_confirm_button()
+
 
 if __name__ == "__main__":
     pytest.main(["-s", "test_6_shoppingcart.py"])
